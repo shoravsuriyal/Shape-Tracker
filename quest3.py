@@ -33,16 +33,30 @@ def analyze_frame():
 
             print 'The unique figure is RECTANGLE'
             flag=None
+            print 'The unique features are :' + str(corners)
 
-        elif len(corners)==7 and tflag is not None:
+        elif eln(corner)==7 and tflag is not None:
 
             print 'The unique figure detected is Triangle'
             tflag=None
+            print 'The unique features are :' + str(corners)
 
-        elif len(corners)==
+        elif len(corners)== 15 and sflag is not None:
+            print 'The unique figure is star'
+            print 'The unique features are :' + str(corners)
+
+        elif len(circles)==1 and cflag is not None:
+
+            print 'The unique figure detected is Circle'
+            cflag=None
+            print 'The unique features are :' + str(circles)
+
+        else:
+
+            print 'No unique figure detected'
             
-        print circles
-        print 'circle detected'
+
+    
         for corner in corners:
             x,y = corner.ravel()
             cv2.circle(img,(x,y),3,255,-1)
