@@ -12,7 +12,7 @@ def analyze_frame():
     rflag=1
     tflag=1
     sflag=1
-    cflag=1s
+    cflag=1
 
     for im in lis:
 
@@ -29,13 +29,14 @@ def analyze_frame():
         print "frame number : "+str(counter)
         print "Number of corners detected: "+str(len(corners))
         circles = cv2.HoughCircles(blur,cv2.HOUGH_GRADIENT,1,20,param1=50,param2=50,minRadius=0,maxRadius=0)
-        if len(corners)==4 and flag is not None:
+       
+        if len(corners)==4 and rflag is not None:
 
             print 'The unique figure is RECTANGLE'
-            flag=None
+            rflag=None
             print 'The unique features are :' + str(corners)
 
-        elif eln(corner)==7 and tflag is not None:
+        elif len(corner)==7 and tflag is not None:
 
             print 'The unique figure detected is Triangle'
             tflag=None
@@ -45,7 +46,7 @@ def analyze_frame():
             print 'The unique figure is star'
             print 'The unique features are :' + str(corners)
 
-        elif len(circles)==1 and cflag is not None:
+        elif circles is not None and cflag is not None:
 
             print 'The unique figure detected is Circle'
             cflag=None
